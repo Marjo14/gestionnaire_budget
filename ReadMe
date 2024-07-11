@@ -1,0 +1,60 @@
+# Simple Budget Manager
+
+Un gestionnaire de budget simple conçu pour aider à suivre leurs dépenses et leurs revenus. 
+Le projet est développé en utilisant une pile technologique composée de MySQL, Node.js, Express, React et Tailwind CSS.
+
+## Stack Technologique
+
+- **Backend** :
+  - SQL avec MySQL
+  - Node.js
+  - Express
+
+- **Frontend** (à venir) :
+  - React
+  - Tailwind CSS
+
+## Étapes de Développement
+
+### 1. Création de la Base de Données avec MySQL Workbench
+
+Pour commencer, créez la base de données pour l'application en utilisant MySQL Workbench.
+
+1. **Installation de MySQL Workbench** :
+   Téléchargez et installez [MySQL Workbench](https://www.mysql.com/products/workbench/).
+
+2. **Création de la base de données** :
+   - Ouvrez MySQL Workbench et connectez-vous à votre instance MySQL.
+   - Créez un nouveau schéma pour votre base de données de gestion de budget.
+   - Utilisez le script suivant pour créer les tables nécessaires :
+
+     ```sql
+     CREATE DATABASE budget_manager;
+
+     USE budget_manager;
+
+     CREATE TABLE users (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(50) NOT NULL,
+       password VARCHAR(255) NOT NULL,
+       email VARCHAR(100) NOT NULL
+     );
+
+     CREATE TABLE transactions (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       user_id INT,
+       amount DECIMAL(10, 2) NOT NULL,
+       type ENUM('income', 'expense') NOT NULL,
+       description VARCHAR(255),
+       date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+       FOREIGN KEY (user_id) REFERENCES users(id)
+     );
+     ```
+
+### 2. Mise en Place du Backend avec Node.js et Express
+
+1. **Initialisation du projet** :
+   ```bash
+   mkdir simple-budget-manager
+   cd simple-budget-manager
+   npm init -y
