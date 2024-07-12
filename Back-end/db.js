@@ -1,3 +1,5 @@
+// Configurer la connexion à la base de donnée
+
 // dbConfig.js
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
@@ -6,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Configurer la connexion MySQL
-const db = mysql.createConnection({
+const dbConnection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -15,12 +17,13 @@ const db = mysql.createConnection({
 });
 
 // Connexion à la base de données
-db.connect((err) => {
+dbConnectionconnection.connect((err) => {
   if (err) {
     console.error('Erreur de connexion à la base de données :', err);
-    process.exit(1); // Quitter le processus en cas d'erreur
+    return;
   }
   console.log('Connecté à la base de données MySQL');
 });
 
-module.exports = db;
+
+module.exports = dbConnection;

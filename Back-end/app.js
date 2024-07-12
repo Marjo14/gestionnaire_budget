@@ -1,24 +1,25 @@
-const express = require("express");
+// Point d'entrée de mon app Node.js + configure express
+// Définit les routes et démarre le serveur.
+
+// IMPORTATION MODULES NÉCESSAIRES
+const express = require("express"); //
 const mysql = require("mysql2");
 const cors = require("cors");
 const dotenv = require("dotenv");
-dotenv.config({ path: "./config.env" });
-const router = express.Router();
 
-// chemin de routes vers les dossiers "locaux"
-const userRoutes = require("./routes/userRoutes");
-const authRoutes = require("./routes/authRoutes");
-const transRoutes = require("./routes/transRoutes");
+
+
+// CHARGER LES VARIABLES ENVRIONNEMENT 
+dotenv.config({ path: "./config.env" });
 
 const app = express();
 
-app.use(express.json());
-//middleware function provided by the Express framework. It is used to parse incoming request bodies in JSON format
 
-// Middleware pour activer CORS This will allow all cross-origin requests
-app.use(cors());
+// MIDDLEWARE 
+app.use(express.json()); //Analyser le corps des requêtes au format Json
+app.use(cors()); 
 
-// Middleware to log request headers and add requestTime property
+// MIDDLEWARE POUR LOGER LES REQUETES 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   console.log("Request URL:", req.originalUrl);
@@ -27,25 +28,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// Mounting routes
-app.use("/api/v1/users", userRoutes);
-app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/catalogue", furnitureRoutes);
-app.use("/api/v1/canapes", furnitureRoutes);
-app.use("/api/v1/chaises", furnitureRoutes);
-app.use("/api/v1/tables", furnitureRoutes);
-// app.use("/api/v1/canapes/:id", furnitureRoutes); // Example: /api/v1/canapes/:id
-app.use("/api/v1/addcart", cartRoutes);
 
 
-const port = process.env.PORT_SERVER || 8000;
-const server = app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
+// IMPORTER LES ROUTES
+const userRoutes = require('./routes/userRoute');
+
+
+// UTILISATION DES ROUTES
+
+ // Qd on fait requête à /users Express redige la requete vers la route déf qui est userRoutes.js
+app.use('/users', userRoutes);
+
+// DÉMARRAGE DU SERVEUR
+const port = process.env.SERVER_PORT || 3000;
+app.listen(port, () => {
+  console.log(`Serveur démarré sur le port ${port}`);
 });
-
-
-
-
-
-
-
