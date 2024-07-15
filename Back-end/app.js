@@ -32,12 +32,13 @@ app.use((req, res, next) => {
 
 // IMPORTER LES ROUTES
 const userRoutes = require('./routes/userRoute');
-
+const transactionRoute = require('./route/transactionRoute');
 
 // UTILISATION DES ROUTES
 
- // Qd on fait requête à /users Express redige la requete vers la route déf qui est userRoutes.js
+ // Qd on fait requête à /users Express redige la requete vers la route définie: 
 app.use('/users', userRoutes);
+app.use('/transactions', transactionRoute);
 
 // DÉMARRAGE DU SERVEUR
 const port = process.env.SERVER_PORT || 3000;

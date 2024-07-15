@@ -1,11 +1,13 @@
+// routes/transactionRoutes.js
+
+const express = require('express');
+const router = express.Router();
+const dbConnection = require('../db'); // Assurez-vous que ce chemin est correct
+
 // Route pour ajouter une nouvelle transaction
-
-const router = require("./routes/userRoutes");
-
-
-app.post('/transactions', (req, res) => {
+router.post('/', (req, res) => {
     const { amount, type_income, user_id, description, category_name } = req.body;
-    connection.query(
+    dbConnection.query(
       'INSERT INTO transactions (amount, type_income, user_id, description, category_name) VALUES (?, ?, ?, ?, ?)',
       [amount, type_income, user_id, description, category_name],
       (error, results) => {
@@ -15,12 +17,12 @@ app.post('/transactions', (req, res) => {
         res.status(201).json({ message: 'Transaction ajoutée avec succès', id: results.insertId });
       }
     );
-  });
+});
 
-  // Route pour récupérer toutes les transactions d'un utilisateur
-app.get('/transactions/:userId', (req, res) => {
+// Route pour récupérer toutes les transactions d'un utilisateur
+router.get('/:userId', (req, res) => {
   const userId = req.params.userId;
-  connection.query('SELECT * FROM transactions WHERE user_id = ?', [userId], (error, results) => {
+  dbConnection.query('SELECT * FROM transactions WHERE user_id = ?', [userId], (error, results) => {
     if (error) {
       return res.status(500).json({ error: 'Erreur de base de données' });
     }
