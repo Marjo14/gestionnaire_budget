@@ -16,11 +16,10 @@ Il est conçu pour être facile à utiliser et vous aider à prendre le contrôl
   - Tailwind CSS
 
 🔍 Objectif & Fonctionnalités : (en cours) 
-- Création de catégories pour organiser vos transactions
-- Ajout de transactions (dépenses et revenus)
-- Affichage des transactions par catégorie
-- Calcul du solde global 
-- Possibilité de filtrer les transactions par date ou par catégorie
+- Création de la base de donnée via mySQLWORKBENCH
+- Création des routes entre la BDD et mon server Node.js/Express
+- Ajout de toutes les transactions (dépenses et revenus) par user
+- Calcul du solde global entre les inconme & les expenses
 
 
 🖥️ Étapes de Développement :
@@ -34,8 +33,6 @@ Il est conçu pour être facile à utiliser et vous aider à prendre le contrôl
 1. Mise en place environnement Frontend avec React et Tailwind
 2. Création de schémas pour l'interface user ( composant, pages, etc) 
 
-
-1. Création de la Base de Données avec MySQL Workbench
 
 
 🕵🏽‍♀️ Compétences acquises :
