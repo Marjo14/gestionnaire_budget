@@ -16,14 +16,15 @@ DROP TABLE IF EXISTS transactions;
 CREATE TABLE transactions (
   id INT AUTO_INCREMENT PRIMARY KEY,
   amount DECIMAL(10, 2) NOT NULL,
-  type_income ENUM('Income', 'Expense') NOT NULL,
-  user_id INT NOT NULL,  
+  user_id INT NOT NULL,
+  type_income ENUM("Income","Expense"),
   description VARCHAR(100),
   category_name VARCHAR(50) NOT NULL,
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES user(id)
 ); -- One to Many
 
-INSERT INTO transactions (amount, type_income, user_id, category_name)
-VALUES (200.00, 'Income', 1, 'Salary');
+
+
+
 

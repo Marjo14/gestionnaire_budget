@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 // Charger les variables d'environnement
 dotenv.config();
 
+
 // Configurer la connexion MySQL
 const dbConnection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -17,10 +18,11 @@ const dbConnection = mysql.createConnection({
 });
 
 // Connexion à la base de données
-dbConnectionconnection.connect((err) => {
+dbConnection.connect((err) => {
+  
   if (err) {
     console.error('Erreur de connexion à la base de données :', err);
-    return;
+    return; console.log("Oui")
   }
   console.log('Connecté à la base de données MySQL');
 });

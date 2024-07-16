@@ -1,6 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
+const dbConnection = require('../db');
 
 // Route pour récupérer tous les utilisateurs
 
@@ -13,4 +14,4 @@ router.get('/', (req, res) => {
     });
   });
 
-  module.exports =router;
+  module.exports = router;

@@ -7,8 +7,6 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-
-
 // CHARGER LES VARIABLES ENVRIONNEMENT 
 dotenv.config({ path: "./config.env" });
 
@@ -29,16 +27,18 @@ app.use((req, res, next) => {
 });
 
 
-
 // IMPORTER LES ROUTES
 const userRoutes = require('./routes/userRoute');
-const transactionRoute = require('./route/transactionRoute');
+const transactionRoute = require('./routes/transactionRoute');
+const calculationRoute = require('./routes/calculationRoute.js');
 
 // UTILISATION DES ROUTES
 
- // Qd on fait requête à /users Express redige la requete vers la route définie: 
+ // Qd on fait requête à  Express redige la requete vers la route définie: 
 app.use('/users', userRoutes);
 app.use('/transactions', transactionRoute);
+app.use('/update/:id', transactionRoute);
+//app.use(calculationRoute); // La requetes 
 
 // DÉMARRAGE DU SERVEUR
 const port = process.env.SERVER_PORT || 3000;
