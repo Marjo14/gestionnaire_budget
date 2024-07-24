@@ -31,7 +31,8 @@ Il est conçu pour être facile à utiliser et vous aider à prendre le contrôl
 
 - **Frontend** (à venir) :
 1. Mise en place environnement Frontend avec React et Tailwind
-2. Création de schémas pour l'interface user ( composant, pages, etc) 
+2. Création de la maquette figma de l'interface
+3. Création de schémas pour l'interface user ( composant, pages, etc) 
 
 
 
