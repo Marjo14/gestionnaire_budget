@@ -1,49 +1,40 @@
-🚧 Projet personnel en cours : Gestionnaire de Budget 
+Here's the corrected version of your README:
 
-#Présentation : 
-Ce estionnaire de budget personnel permet de suivre nos dépenses et nos revenus, via la création des catégories pour organiser vos transactions. 
-Il est conçu pour être facile à utiliser et vous aider à prendre le contrôle de vos finances.
+---
 
+🚧 **Projet personnel en cours : Gestionnaire de Budget**
 
-🤖 Stack utilisée :
-- **Backend** : (en cours) 
-<a href="https://nodejs.org/" title="Node.js"><img src="https://img.shields.io/badge/Node.js-282C34?logo=node.js&logoColor=339933" /></a>
-<a href="https://expressjs.com/" title="Express.js"><img src="https://img.shields.io/badge/Express.js-282C34?logo=express&logoColor=ffffff" /></a>
-<a href="https://www.mysql.com/" title="MySQL"><img src="https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1" /></a>
+## Présentation
+Ce gestionnaire de budget personnel permet de suivre vos dépenses et revenus en créant des catégories pour organiser vos transactions. Il est conçu pour être facile à utiliser et vous aider à prendre le contrôle de vos finances.
 
-- **Frontend** (à venir) :
- <a href="https://react.dev" title="React"><img src="https://img.shields.io/badge/React-282C34?logo=react&logoColor=61DAFB" /></a>
- <a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://img.shields.io/badge/Tailwind%20CSS-282C34?logo=tailwind-css&logoColor=38B2AC" /></a>
-
-
-🔍 Objectif & Fonctionnalités : (en cours) 
-- Création de la base de donnée via mySQLWORKBENCH
-- Création des routes entre la BDD et mon server Node.js/Express
-- Ajout de toutes les transactions (dépenses et revenus) par user
-- Calcul du solde global entre les inconme & les expenses
-
-
-🖥️ Étapes de Développement :
-- **Backend** : (en cours)
-1. Création de la Base de Données avec MySQL Workbench
-2. Mise en Place du de l'environnement Backend avec Node.js et Express
-3. Configuration des fichiers config.env // gitignore // bd.js 
-4. Construction des routes ( chemins) de la BDD vers l'API ( encours) 
+🤖 **Stack utilisée :**
+- **Backend** (en cours) :
+  ![Node.js](https://img.shields.io/badge/Node.js-282C34?logo=node.js&logoColor=339933) ![Express.js](https://img.shields.io/badge/Express.js-282C34?logo=express&logoColor=ffffff)
+  ![MySQL](https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1)
 
 - **Frontend** (à venir) :
-1. Mise en place environnement Frontend avec React et Tailwind
-2. Création de la maquette figma de l'interface
-3. Création de schémas pour l'interface user ( composant, pages, etc) 
+  - ![React](https://img.shields.io/badge/React-282C34?logo=react&logoColor=61DAFB)
+  - ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-282C34?logo=tailwind-css&logoColor=38B2AC)
 
+🔍 **Objectif & Fonctionnalités** (en cours) :
+- Création de la base de données avec MySQL Workbench.
+- Création des routes entre la BDD et le serveur Node.js/Express.
+- Ajout des transactions (dépenses et revenus) par utilisateur.
+- Calcul du solde global entre les revenus et les dépenses.
 
+🖥️ **Étapes de Développement :**
+- **Backend** (en cours) :
+  1. Création de la base de données avec MySQL Workbench.
+  2. Mise en place de l'environnement Backend avec Node.js et Express.
+  3. Configuration des fichiers `config.env`, `gitignore`, `bd.js`.
+  4. Construction des routes de la BDD vers l'API (en cours).
 
-🕵🏽‍♀️ Compétences acquises :
-- Reflexion sur les tables crées, les relations, 
-- Création de base de donnée avec MySQL + connexion serveur à la bdd
-- Priorisation des étapes : MVP 
+- **Frontend** (à venir) :
+  1. Mise en place de l'environnement Frontend avec React et Tailwind.
+  2. Création de la maquette Figma de l'interface.
+  3. Création de schémas pour l'interface utilisateur (composants, pages, etc.).
 
-
-
-
-
-
+🕵🏽‍♀️ **Compétences acquises :**
+- Réflexion sur les tables créées, les relations.
+- Création de base de données avec MySQL + connexion du serveur à la BDD.
+- Priorisation des étapes : MVP.
