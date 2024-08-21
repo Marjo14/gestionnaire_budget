@@ -7,13 +7,14 @@ Il est conçu pour être facile à utiliser et vous aider à prendre le contrôl
 
 🤖 Stack utilisée :
 - **Backend** : (en cours) 
-  - SQL avec MySQL
-  - Node.js
-  - Express
+<a href="https://nodejs.org/" title="Node.js"><img src="https://img.shields.io/badge/Node.js-282C34?logo=node.js&logoColor=339933" /></a>
+<a href="https://expressjs.com/" title="Express.js"><img src="https://img.shields.io/badge/Express.js-282C34?logo=express&logoColor=ffffff" /></a>
+<a href="https://www.mysql.com/" title="MySQL"><img src="https://img.shields.io/badge/MySQL-282C34?logo=mysql&logoColor=4479A1" /></a>
 
 - **Frontend** (à venir) :
-  - React
-  - Tailwind CSS
+ <a href="https://react.dev" title="React"><img src="https://img.shields.io/badge/React-282C34?logo=react&logoColor=61DAFB" /></a>
+ <a href="https://tailwindcss.com" title="Tailwind CSS"><img src="https://img.shields.io/badge/Tailwind%20CSS-282C34?logo=tailwind-css&logoColor=38B2AC" /></a>
+
 
 🔍 Objectif & Fonctionnalités : (en cours) 
 - Création de la base de donnée via mySQLWORKBENCH
