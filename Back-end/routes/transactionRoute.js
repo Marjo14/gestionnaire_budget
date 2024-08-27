@@ -21,26 +21,50 @@ router.post('/create', (req, res) => {
     );
 });
 
-//Route pour calculer toutes les transactions INCOME par user 
-router.get('/balance/:userId', (req, res) => {
+//Calculer toutes les transactions INCOME/EXPRENSE par user 
+router.get('/balance/:userId', (req, res) => { //Chemin pour catcher Id user
   const userId = req.params.userId;
-  console.log("test user", userId);
+  console.log("Requête de balance pour l'utilisateur:", userId);;
   
-  dbConnection.query('SELECT SUM(amount) AS total_income FROM transactions WHERE type_income = "income" AND user_id = ?', [userId], (error, results_income) => {
+  dbConnection.query('SELECT SUM(amount) AS total_income FROM transactions WHERE type_income = "income" AND user_id = ?', 
+    [userId], (error, results_income) => {
     if (error) {
-      return res.status(500).json({ error: 'Erreur de base de données' });
+      console.error("Erreur lors du calcul des revenus:", error);
+      return res.status(500).json(
+        { error: 'Erreur lors du calcul des revenus',
+          details: error.message
+        });
     }
     
-    dbConnection.query('SELECT SUM(amount) AS total_expense FROM transactions WHERE type_income = "expense" AND user_id = ?', [userId], (error, results_expense) => {
+    dbConnection.query('SELECT SUM(amount) AS total_expense FROM transactions WHERE type_income = "expense" AND user_id = ?', 
+      [userId], (error, results_expense) => {
       if (error) {
-        return res.status(500).json({ error: 'Erreur de base de données' });
+        console.error("Erreur lors du calcul des revenus:", error);
+        return res.status(500).json( {    
+        error: 'Erreur lors du calcul des dépenses',
+        details: error.message
+      });
       }
       
       const total_income = results_income[0].total_income || 0;
       const total_expense = results_expense[0].total_expense || 0;
       const balance = total_income - total_expense;
+
+      if (isNaN(balance)) {
+        console.error("Erreur de calcul de la balance");
+        return res.status(500).json({ 
+          error: 'Erreur de calcul de la balance',
+          details: 'Les valeurs récupérées ne sont pas des nombres valides'
+        });
+      }
       
-      res.status(200).json({balance, total_income, total_expense});
+      console.log(`Balance calculée pour l'utilisateur ${userId}: ${balance}`);
+
+      
+      res.status(200).json({
+        balance, total_income, total_expense,
+        message: 'Montant calculé avec succès'
+      });
     });
   });
 });
