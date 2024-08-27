@@ -5,7 +5,7 @@ Ce gestionnaire de budget personnel permet de suivre vos dépenses et revenus en
 Il est conçu pour être facile à utiliser et vous aider à prendre le contrôle de vos finances.
 
 🤖 **Stack utilisée :**
-- **Backend** (en cours) :
+- **Backend** :
   - Node Js
   - Express
   - MySql
