@@ -19,7 +19,8 @@ app.use(cors());
 
 // MIDDLEWARE POUR LOGER LES REQUETES 
 app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
+  req.requestTime = new Date().toISOString(); // Stocke date+heure actuelle au format ISO string
+  //Utile pour enregistrer chaque requête reçue
   console.log("Request URL:", req.originalUrl);
   console.log("Request Method:", req.method);
   console.log("Request Headers:", req.headers);
@@ -28,21 +29,16 @@ app.use((req, res, next) => {
 
 
 // IMPORTER LES ROUTES
-
 const userRoutes = require('./routes/userRoute');
 const transactionRoute = require('./routes/transactionRoute');
 //const calculationRoute = require('./routes/calculationRoute.js');
 
-
 // UTILISATION DES ROUTES
-
  // Qd on fait requête à  Express redige la requete vers la route définie: 
 app.use('/users', userRoutes);
 app.use('/transactions', transactionRoute);
 app.use('/update/:id', transactionRoute);
 //app.use('/calculations', calculationRoute);
-
-//app.use(calculationRoute); // La requetes 
 
 // DÉMARRAGE DU SERVEUR
 const port = process.env.SERVER_PORT || 3000;
