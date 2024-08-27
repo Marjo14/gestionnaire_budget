@@ -1,15 +1,12 @@
 USE budget_app;
 
 -- Création table user 
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE user (
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) NOT NULL,
   email VARCHAR(60) NOT NULL,
   password VARCHAR(100) NOT NULL
 );
-INSERT INTO user(username,email,password)
-VALUES ('Marie', 'marie@gmail.com','123');
-
 
 -- Création table transactions 
 DROP TABLE IF EXISTS transactions;

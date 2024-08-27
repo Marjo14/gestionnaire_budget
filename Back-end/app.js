@@ -28,9 +28,11 @@ app.use((req, res, next) => {
 
 
 // IMPORTER LES ROUTES
+
 const userRoutes = require('./routes/userRoute');
 const transactionRoute = require('./routes/transactionRoute');
 const calculationRoute = require('./routes/calculationRoute.js');
+
 
 // UTILISATION DES ROUTES
 
@@ -38,6 +40,8 @@ const calculationRoute = require('./routes/calculationRoute.js');
 app.use('/users', userRoutes);
 app.use('/transactions', transactionRoute);
 app.use('/update/:id', transactionRoute);
+app.use('/calculations', calculationRoute);
+
 //app.use(calculationRoute); // La requetes 
 
 // DÉMARRAGE DU SERVEUR

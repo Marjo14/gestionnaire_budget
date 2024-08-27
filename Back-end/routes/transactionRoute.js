@@ -7,7 +7,7 @@ const dbConnection = require('../db');
 // Route pour ajouter une nouvelle transaction
 router.post('/create', (req, res) => {
     const { amount, type_income, user_id, description, category_name } = req.body;
-    console.log(type_income);
+    console.debug("test",type_income);
     dbConnection.query(
       'INSERT INTO transactions (amount, type_income, user_id, description, category_name) VALUES (?, ?, ?, ?, ?)',    
     [amount, type_income, user_id, description, category_name],
@@ -21,6 +21,30 @@ router.post('/create', (req, res) => {
     );
 });
 
+//Route pour calculer toutes les transactions INCOME par user 
+router.get('/balance/:userId', (req, res) => {
+  const userId = req.params.userId;
+  console.log("test user", userId);
+  
+  dbConnection.query('SELECT SUM(amount) AS total_income FROM transactions WHERE type_income = "income" AND user_id = ?', [userId], (error, results_income) => {
+    if (error) {
+      return res.status(500).json({ error: 'Erreur de base de données' });
+    }
+    
+    dbConnection.query('SELECT SUM(amount) AS total_expense FROM transactions WHERE type_income = "expense" AND user_id = ?', [userId], (error, results_expense) => {
+      if (error) {
+        return res.status(500).json({ error: 'Erreur de base de données' });
+      }
+      
+      const total_income = results_income[0].total_income || 0;
+      const total_expense = results_expense[0].total_expense || 0;
+      const balance = total_income - total_expense;
+      
+      res.status(200).json({balance, total_income, total_expense});
+    });
+  });
+});
+
 // Route pour récupérer toutes les transactions d'un utilisateur
 router.get('/get/:userId', (req, res) => {
   const userId = req.params.userId;
@@ -28,7 +52,7 @@ router.get('/get/:userId', (req, res) => {
     if (error) {
       return res.status(500).json({ error: 'Erreur de base de données' });
     }
-    res.json(results);
+    res.json(results); // result de la query
   });
 });
 

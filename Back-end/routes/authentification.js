@@ -1,4 +1,4 @@
-/* const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const connection = require("./../db");
 const dotenv = require("dotenv");
@@ -104,4 +104,4 @@ const signIn = (req, res) => {
 
 module.exports = { signUp, signIn };
 
-/*
+
