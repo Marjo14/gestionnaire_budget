@@ -83,7 +83,10 @@ const signIn = async (req, res) => {
       });
     });
   } catch (err) {
-    res.status(500).json({ status: "error", message: "Erreur interne du serveur." });
+    res.status(500).json(
+      { 
+    status: "error", message: "Erreur interne du serveur." 
+  });
   }
 };
 
