@@ -1,17 +1,17 @@
 // routes/calculationRoute.js
-
+/*
 const express = require('express');
 const router = express.Router();
 const dbConnection = require('../db');
 const Transactions = require('../db');
 
-//Calcul soustraction nouveau solde INCOME
+//Calcul solde INCOME
 router.get('/balance/:userId',(req, res) => {
     const userId = req.params.userId; //Info récup du front 
     const query = `
     SELECT SUM (amount) as income 
     FROM transactions
-    WHERE user_id = ?`
+    WHERE user_id = ? AND type_income`
 });
 
 
@@ -54,3 +54,4 @@ router.get('/balance/:userId', (req, res) => {
   });
   
   module.exports = router;
+*/
