@@ -7,16 +7,18 @@ const mysql = require("mysql2");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
+// IMPORTER LES ROUTES
+const userRoutes = require('./routes/userRoute');
+const transactionRoute = require('./routes/transactionRoute');
+
 // CHARGER LES VARIABLES ENVRIONNEMENT 
 dotenv.config({ path: "./config.env" });
 
 const app = express();
 
-
 // MIDDLEWARE 
 app.use(express.json()); //Analyser le corps des requêtes au format Json
 app.use(cors()); 
-
 // MIDDLEWARE POUR LOGER LES REQUETES 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString(); // Stocke date+heure actuelle au format ISO string
@@ -26,12 +28,6 @@ app.use((req, res, next) => {
   console.log("Request Headers:", req.headers);
   next();
 });
-
-
-// IMPORTER LES ROUTES
-const userRoutes = require('./routes/userRoute');
-const transactionRoute = require('./routes/transactionRoute');
-//const calculationRoute = require('./routes/calculationRoute.js');
 
 // UTILISATION DES ROUTES
  // Qd on fait requête à  Express redige la requete vers la route définie: 
